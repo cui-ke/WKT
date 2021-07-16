@@ -20,8 +20,6 @@
                                             ] ;
                             dcterms:description "" ;
                             dcterms:rights "Copyright 2020 University of Geneva, all rights reserved" ;
-                            owl:versionIRI "http://purl.org/net/skoo/skoo.owl" ;
-                            owl:ontologyIRI "";
                             dcterms:title "WKT Ontology - Well-known text representation of geometry" .
 
 #################################################################
