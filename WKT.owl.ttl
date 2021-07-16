@@ -1,0 +1,169 @@
+@prefix : <http://purl.org/onto/WKT#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix geom: <http://purl.org/onto/geometry#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <https://schema.org/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@base <http://purl.org/onto/WKT> .
+
+<http://purl.org/onto/WKT> rdf:type owl:Ontology ;
+                            dcterms:creator [ schema:name "Claudine Métral"
+                                            ] ,
+                                            [ schema:identifier <https://orcid.org/0000-0001-8492-0354> ;
+                                              schema:name "Ashley Caselli"
+                                            ] ,
+                                            [ schema:name "Gilles Falquet"
+                                            ] ;
+                            dcterms:description "" ;
+                            dcterms:rights "Copyright 2020 University of Geneva, all rights reserved" ;
+                            owl:versionIRI "http://purl.org/net/skoo/skoo.owl" ;
+                            owl:ontologyIRI "";
+                            dcterms:title "WKT Ontology - Well-known text representation of geometry" .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.org/dc/terms/creator
+dcterms:creator rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/description
+dcterms:description rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/rights
+dcterms:rights rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/title
+dcterms:title rdf:type owl:AnnotationProperty .
+
+
+###  https://schema.org/identifier
+schema:identifier rdf:type owl:AnnotationProperty .
+
+
+###  https://schema.org/name
+schema:name rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://purl.org/onto/geometry#WKT2Dvalue
+geom:WKT2Dvalue rdf:type owl:DatatypeProperty .
+
+
+###  http://purl.org/onto/geometry#WKT3Dvalue
+geom:WKT3Dvalue rdf:type owl:DatatypeProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://purl.org/onto/WKT#GeometryCollection
+:GeometryCollection rdf:type owl:Class ;
+                    rdfs:subClassOf :WKT2D .
+
+
+###  http://purl.org/onto/WKT#GeometryCollectionZ
+:GeometryCollectionZ rdf:type owl:Class ;
+                     rdfs:subClassOf :WKT3D .
+
+
+###  http://purl.org/onto/WKT#LineString
+:LineString rdf:type owl:Class ;
+            rdfs:subClassOf :WKT2D .
+
+
+###  http://purl.org/onto/WKT#LineStringZ
+:LineStringZ rdf:type owl:Class ;
+             rdfs:subClassOf :WKT3D .
+
+
+###  http://purl.org/onto/WKT#MultiLineString
+:MultiLineString rdf:type owl:Class ;
+                 rdfs:subClassOf :WKT2D .
+
+
+###  http://purl.org/onto/WKT#MultiLineStringZ
+:MultiLineStringZ rdf:type owl:Class ;
+                  rdfs:subClassOf :WKT3D .
+
+
+###  http://purl.org/onto/WKT#MultiPoint
+:MultiPoint rdf:type owl:Class ;
+            rdfs:subClassOf :WKT2D .
+
+
+###  http://purl.org/onto/WKT#MultiPointZ
+:MultiPointZ rdf:type owl:Class ;
+             rdfs:subClassOf :WKT3D .
+
+
+###  http://purl.org/onto/WKT#MultiPolygon
+:MultiPolygon rdf:type owl:Class ;
+              rdfs:subClassOf :WKT2D .
+
+
+###  http://purl.org/onto/WKT#MultiPolygonZ
+:MultiPolygonZ rdf:type owl:Class ;
+               rdfs:subClassOf :WKT3D .
+
+
+###  http://purl.org/onto/WKT#Point
+:Point rdf:type owl:Class ;
+       rdfs:subClassOf :WKT2D .
+
+
+###  http://purl.org/onto/WKT#PointZ
+:PointZ rdf:type owl:Class ;
+        rdfs:subClassOf :WKT3D .
+
+
+###  http://purl.org/onto/WKT#Polygon
+:Polygon rdf:type owl:Class ;
+         rdfs:subClassOf :WKT2D .
+
+
+###  http://purl.org/onto/WKT#PolygonZ
+:PolygonZ rdf:type owl:Class ;
+          rdfs:subClassOf :WKT3D .
+
+
+###  http://purl.org/onto/WKT#WKT2D
+:WKT2D rdf:type owl:Class ;
+       rdfs:subClassOf :WKTObject ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty geom:WKT2Dvalue ;
+                         owl:allValuesFrom xsd:string
+                       ] .
+
+
+###  http://purl.org/onto/WKT#WKT3D
+:WKT3D rdf:type owl:Class ;
+       rdfs:subClassOf :WKTObject ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty geom:WKT3Dvalue ;
+                         owl:allValuesFrom xsd:string
+                       ] .
+
+
+###  http://purl.org/onto/WKT#WKTObject
+:WKTObject rdf:type owl:Class ;
+           rdfs:subClassOf geom:GeometricObject ;
+           rdfs:comment "defined from https://en.wikipedia.org/wiki/Well-known_text_representation_of_geometry" .
+
+
+###  http://purl.org/onto/geometry#GeometricObject
+geom:GeometricObject rdf:type owl:Class .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
