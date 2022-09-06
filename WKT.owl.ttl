@@ -8,6 +8,7 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix schema: <https://schema.org/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @base <http://purl.org/onto/WKT> .
 
 <http://purl.org/onto/WKT> rdf:type owl:Ontology ;
@@ -18,9 +19,9 @@
                                             ] ,
                                             [ schema:name "Gilles Falquet"
                                             ] ;
-                            dcterms:description "" ;
+                            dcterms:description "![WKT Ontology Overview](wkt.svg)";
                             dcterms:rights "Copyright 2020 University of Geneva, all rights reserved" ;
-                            dcterms:title "WKT Ontology - Well-known text representation of geometry" .
+                            dcterms:title "WKT-O: The WKT Ontology" .
 
 #################################################################
 #    Annotation properties
