@@ -1,0 +1,1 @@
+# WKT Ontology - Well-known text representation of geometry
